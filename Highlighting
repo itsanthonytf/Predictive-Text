@@ -1,0 +1,9 @@
+function highlightSuggestion(event) {
+    let suggestions = document.querySelectorAll(".suggestion");
+    suggestions.forEach(suggestion => suggestion.classList.remove("highlighted"));
+    event.target.classList.add("highlighted");
+}
+
+.highlighted {
+    background-color: #ffcbcb;
+}
