@@ -1,0 +1,24 @@
+const fruitList = ["Apple", "Banana", "Orange", "Grape", "Pineapple", "Mango", "Strawberry", "Peach", "Blueberry", "Watermelon"];
+
+function search() {
+    let searchValue = document.getElementById("search-bar").value.toLowerCase();
+    let dropdown = document.getElementById("dropdown");
+    dropdown.innerHTML = ""; // Clear previous results
+
+    if (searchValue) {
+        let results = fruitList.filter(fruit => fruit.toLowerCase().includes(searchValue));
+
+        results.forEach(fruit => {
+            let div = document.createElement("div");
+            div.textContent = fruit;
+            div.classList.add("suggestion");
+            div.addEventListener("mouseover", highlightSuggestion);
+            div.addEventListener("click", useSuggestion);
+            dropdown.appendChild(div);
+        });
+
+        dropdown.style.display = results.length ? "block" : "none";
+    } else {
+        dropdown.style.display = "none";
+    }
+}
