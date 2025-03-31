@@ -1,0 +1,4 @@
+function useSuggestion(event) {
+    document.getElementById("search-bar").value = event.target.textContent;
+    document.getElementById("dropdown").style.display = "none";
+}
